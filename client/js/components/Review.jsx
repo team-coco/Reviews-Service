@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchUserData } from '../actions'
 import QualityBtn from './QualityBtn.jsx';
+import $ from 'jquery';
 
 class Review extends React.Component {
   constructor(props) {
@@ -19,6 +20,14 @@ class Review extends React.Component {
       this.props.fetchUserData(this.props.review.user_id);
     } else {
       console.log('dont fetch');
+    }
+    if (this.props.params.q) {
+      var regex = new RegExp(this.props.params.q, 'gi');
+      //`<strong></strong>`
+      // $('.review-text').html($('.review-text').text().replace(regex, word => {
+      //   console.log(word);
+      //   return `<strong>${word}</strong>`;
+      // }));
     }
   }
   render() {
@@ -88,6 +97,7 @@ class Review extends React.Component {
 }
 const mapStateToProps = (state) => {
   return {
+    params: state.params,
     userData: state.userData
   };
 };

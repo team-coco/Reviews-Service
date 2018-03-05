@@ -8,7 +8,7 @@ class Reviews extends React.Component {
     super(props);
   }
   componentDidMount() {
-    this.props.fetchReviews(this.props.params.id);
+    this.props.fetchReviews(this.props.params);
   }
   render() {
     return (
@@ -29,8 +29,8 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchReviews: (id) => {
-      dispatch(fetchReviews(id));
+    fetchReviews: (params) => {
+      dispatch(fetchReviews(params));
     }
   };
 };
