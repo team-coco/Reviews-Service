@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-let SearchAndSort = ({ params }) => {
+const SearchAndSort = ({ params }) => {
   let input;
   const myFunction = () => {
     document.getElementById("myDropdown").classList.toggle("show");

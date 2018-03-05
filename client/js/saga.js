@@ -3,7 +3,7 @@ import api from './api'
 
 function* fetchReviews (action) {
   try {
-    const data = yield api.getReviews(action.id)
+    const data = yield api.getReviews(action.params)
     yield put({ type: 'FETCHING_REVIEWS_SUCCESS', data });
   } catch (e) {
     yield put({ type: 'FETCHING_REVIEWS_FAILURE' });

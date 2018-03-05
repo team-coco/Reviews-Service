@@ -1,7 +1,7 @@
-export const fetchReviews = id => {
+export const fetchReviews = params => {
   return {
     type: 'FETCHING_REVIEWS',
-    id
+    params: params
   };
 };
 export const fetchUserData = id => {
