@@ -16,6 +16,7 @@
     "babel-polyfill": "^6.26.0",
     "bluebird": "^3.5.1",
     "cheerio": "^1.0.0-rc.2",
+    "css-loader": "^0.28.10",
     "express": "^4.16.2",
     "jquery": "^3.3.1",
     "mysql": "^2.15.0",
@@ -26,7 +27,8 @@
     "redux-devtools": "^3.4.1",
     "redux-saga": "^0.16.0",
     "request": "^2.83.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "style-loader": "^0.20.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
