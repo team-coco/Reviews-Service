@@ -2,7 +2,7 @@ import axios from 'axios';
 export default {
   getReviews: (params) => {
     return new Promise((resolve, reject) => {
-      var url = `/reviews/${params.id}`;
+      var url = `/reviews/reviews/${params.id}`;
       var keys = Object.keys(params);
       keys.shift();
       if (keys.length) {
@@ -21,7 +21,7 @@ export default {
   },
   getUserData: id => {
     return new Promise((resolve, reject) => {
-      axios.get(`/user/${id}`).then(res => {
+      axios.get(`/reviews/user/${id}`).then(res => {
         if (res.data) {
           resolve(res.data);
         }
