@@ -3,7 +3,7 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  database: 'yelp_db'
+  database: 'chompy'
 });
 
 con.connect(function(err) {

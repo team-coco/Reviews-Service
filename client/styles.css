@@ -32,7 +32,7 @@ body {
 }
 .dropbtn {
   background-color: #ffdf00;
-  background-image: url("redarrow.png");
+  background-image: url("https://i.imgur.com/hcJewfy.png");
   background-repeat: no-repeat;
   background-position: 96%;
   background-size: contain;
@@ -131,7 +131,7 @@ body {
   width: 20px;
   height: 20px;
   margin-right: 2px;
-  background-image: url("heart.png");
+  background-image: url("https://i.imgur.com/YQcQAdG.png");
   background-size: contain;
 }
 .review-text {
