@@ -20,8 +20,8 @@ class QualityBtn extends React.Component {
   }
   render() {
     return (
-      <div className="review-quality">
-        <button className="review-quality-btn" onClick={this.clickBtn} style={this.state.clicked
+      <div className="guinzar-review-quality">
+        <button className="guinzar-review-quality-btn" onClick={this.clickBtn} style={this.state.clicked
           ? {backgroundColor: '#fdf400', fontWeight: 'bold', color: '#ef4836'} : {}}>
           {this.props.quality[0]} {this.props.quality[1]}
         </button>

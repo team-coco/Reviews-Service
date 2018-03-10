@@ -22,70 +22,71 @@ class Review extends React.Component {
       console.log('dont fetch');
     }
     if (this.props.params.q) {
-      var regex = new RegExp(this.props.params.q, 'gi');
-      //`<strong></strong>`
-      // $('.review-text').html($('.review-text').text().replace(regex, word => {
-      //   console.log(word);
-      //   return `<strong>${word}</strong>`;
-      // }));
+      var src_str = $('#guinzar-review-' + this.props.keyVal).text();
+      var term = this.props.params.q;
+      term = term.replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
+      var pattern = new RegExp("("+term+")", "gi");
+      src_str = src_str.replace(pattern, "<mark>$1</mark>");
+      src_str = src_str.replace(/(<mark>[^<>]*)((<[^>]+>)+)([^<>]*<\/mark>)/,"$1</mark>$2<mark>$4");
+      $('#guinzar-review-' + this.props.keyVal).html(src_str);
     }
   }
   render() {
     return (
-      <div className="review-container">
-        <div className="user">
-          <div className="user-info">
-            <div className="user-picture">
-              <div className="user-pic"
+      <div className="guinzar-review-container">
+        <div className="guinzar-user">
+          <div className="guinzar-user-info">
+            <div className="guinzar-user-picture">
+              <div className="guinzar-user-pic"
                 style={this.props.userData.data[this.props.review.user_id] ?
                   {backgroundImage: "url(" + this.props.userData.data[this.props.review.user_id].url + ")"}
                   : {backgroundImage: "url(" + this.props.review.user_pic + ")"}}></div>
-              <div className="user-since">
+              <div className="guinzar-user-since">
                 Chomper since:<br />{this.user_since}
               </div>
             </div>
-            <div className="user-stats">
-              <div className="user-name">
-                <a className="user-link" href={'https://www.yelp.com/user_details?userid='
+            <div className="guinzar-user-stats">
+              <div className="guinzar-user-name">
+                <a className="guinzar-user-link" href={'https://www.yelp.com/user_details?userid='
                   + this.props.review.user_id}>{this.props.review.user_name}</a>
               </div>
-              <div className="user-reviewcount">
+              <div className="guinzar-user-reviewcount">
                 Reviews: {this.props.review.user_reviewcount}
               </div>
-              <div className="user-avgstars">
+              <div className="guinzar-user-avgstars">
                 Avg Stars: {this.props.review.user_average_stars}
               </div>
-              <div className="user-fans">
+              <div className="guinzar-user-fans">
                 Fans: {this.props.review.user_fans}
               </div>
-              <div className="user-useful">
+              <div className="guinzar-user-useful">
                 Useful: {this.props.review.user_useful}
               </div>
-              <div className="user-funny">
+              <div className="guinzar-user-funny">
                 Funny: {this.props.review.user_funny}
               </div>
-              <div className="user-cool">
+              <div className="guinzar-user-cool">
                 Cool: {this.props.review.user_cool}
               </div>
             </div>
           </div>
           <div>
-            mouseover stuff
+            
           </div>
         </div>
-        <div className="review">
-          <div className="review-header">
-            <div className="review-hearts">
-              {this.hearts.map((star, i) => <div key={i} className="review-heart"></div>)}
+        <div className="guinzar-review">
+          <div className="guinzar-review-header">
+            <div className="guinzar-review-hearts">
+              {this.hearts.map((star, i) => <div key={i} className="guinzar-review-heart"></div>)}
             </div>
-            <div className="review-date">
+            <div className="guinzar-review-date">
               {this.date}
             </div>
           </div>
-          <div className="review-text">
+          <div id={'guinzar-review-' + this.props.keyVal} className="guinzar-review-text">
             {this.props.review.text}
           </div>
-          <div className="review-qualities">
+          <div className="guinzar-review-qualities">
             <QualityBtn quality={['Useful', this.props.review.useful]} />
             <QualityBtn quality={['Funny', this.props.review.funny]} />
             <QualityBtn quality={['Cool', this.props.review.cool]} />

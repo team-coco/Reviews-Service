@@ -46,17 +46,24 @@ module.exports = {
         if (params.q) {
           query = `select * from (` + query + `) as reviews where reviews.text like '%${params.q}%'`
         }
-        query += ' limit 20';
-        if (params.start) {
-          query += ` offset ${params.start}`
-        }
         db.query(query, (err, result) => {
           if (err) {
             reject(err);
           } else {
-            resolve(result);
+            var pages = Math.ceil(result.length / 20);
+            var reviews;
+            if (params.start) {
+              reviews = result.slice(params.start, (params.start * 1) + 20);
+            } else {
+              reviews = result.slice(0, 20);
+            }
+            resolve({pages: new Array(pages), reviews: reviews});
           }
         });
+        // query += ' limit 20';
+        // if (params.start) {
+        //   query += ` offset ${params.start}`
+        // }
       });
     }
   },

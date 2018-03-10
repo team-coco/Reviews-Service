@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const Header = ({ reviews }) => (
-  <div className="header">
-    <span className="yellow">Recommended Reviews</span> for {reviews.data.name}
+  <div className="guinzar-header">
+    <span className="guinzar-yellow">Recommended Reviews</span> for {reviews.data.name}
   </div>
 );
 

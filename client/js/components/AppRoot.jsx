@@ -10,7 +10,7 @@ import configureStore from '../store';
 const store = configureStore();
 
 const ReviewsModule = () => (
-  <div className="reviews-container">
+  <div className="guinzar-reviews-container">
     <Header />
     <SearchAndSort />
     <Reviews />

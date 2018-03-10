@@ -6,9 +6,12 @@ module.exports = {
   reviews: {
     get: (req, res) => {
       models.business.get(req.params.id).then(name => {
-        models.reviews.get(req.params.id, req.query).then(reviews => {
-          res.json({...name[0], reviews: reviews});
+        models.reviews.get(req.params.id, req.query).then(data => {
+          res.json({...name[0], pages: data.pages, reviews: data.reviews});
         });
+      }).catch(err => {
+        console.log('oh no db error');
+        res.end();
       });
     }
   },
