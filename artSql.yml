@@ -2,7 +2,7 @@ config:
   target: 'http://localhost:3004'
   phases:
     - duration: 10
-      arrivalRate: 30
+      arrivalRate: 25
   defaults:
     headers:
   payload:

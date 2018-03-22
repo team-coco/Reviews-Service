@@ -1,10 +1,11 @@
+require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const controller = require('./controllers');
 const morgan = require('morgan');
 const dotenv = require('dotenv').config();
 if (dotenv.error) console.log("No .env file found for config");
+const controller = require('./controllers');
 const app = express();
 const port = process.env.PORT || 3004;
 
