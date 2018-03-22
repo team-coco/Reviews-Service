@@ -1,0 +1,18 @@
+config:
+  target: 'http://localhost:3004'
+  phases:
+    - duration: 10
+      arrivalRate: 30
+  defaults:
+    headers:
+  payload:
+    path: "./load_testing/constrainedBizId.csv"
+    fields: 
+      - 'business_id'
+
+scenarios:
+  - flow:
+    - loop:
+      - get:
+          url: "/reviews/reviews/{{business_id}}"
+      count: 200

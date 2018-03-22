@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   width: 584px;
-  background-color: #16c600;
+  background-color: white;
   border-radius: 10px;
   padding: 8px;
 }
@@ -11,41 +11,58 @@
   font-size: 24px;
   margin-bottom: 3px;
 }
-.guinzar-yellow {
+.guinzar-red {
   font-weight: bold;
-  color: #fcff00;
+  color: #d32323;
 }
 .guinzar-search-sort {
   display: flex;
   flex-direction: row;
-  background-color: #84ff00;
-  border-radius: 10px;
+  border-bottom: 1px solid #e6e6e6;
   justify-content: space-between;
   align-items: center;
+  height: 50px;
 }
 .guinzar-search-input {
-  border: 0px;
-  border-radius: 10px;
+  border: 1px solid #e6e6e6;
   margin-left: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  height: 24px;
+  width: 200px;
 }
+
+.guinzar-search-btn {
+  border: 1px solid #0097ec;
+  color: #0097ec;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  height: 26px;
+}
+
 .guinzar-dropbtn {
-  background-color: #ffdf00;
+  
   background-image: url("https://i.imgur.com/hcJewfy.png");
   background-repeat: no-repeat;
-  background-position: 96%;
-  background-size: contain;
+  background-position: 94%;
+  background-size: 14px;
   border: none;
-  border-radius: 10px;
+  font-size: 14px;
   cursor: pointer;
-  margin-right: 3px;
+  margin-right: 5px;
   padding-right: 20px;
+  padding-bottom: 6px;
+  padding-top: 10px;
+  border-bottom: 3px solid white;
 }
 .guinzar-dropbtn:hover, .guinzar-dropbtn:focus {
-  background-color: #fdf400;
+  border-bottom: 3px solid #ffdf00;
 }
 .guinzar-dropdown {
   margin-bottom: 1px;
   position: relative;
+  font-size:14px;
+  
 }
 .guinzar-dropdown-content {
   display: none;
@@ -71,18 +88,32 @@
   display: flex;
   flex-direction: row;
   /*background-color: #84ff00;*/
-  border-radius: 10px;
   justify-content: space-between;
   margin: 8px 0;
+  border-bottom: 1px solid #e6e6e6;
 }
 .guinzar-user {
   width: 152px;
   padding: 6px;
   background-color: white;
-  border: 5px solid #ffdf00;
-  border-radius: 10px;
   font-size: 12px;
 }
+.guinzar-user-stats {
+  margin-left:3px;
+}
+.guinzar-user-reviewcount {
+  font-weight: bold;
+}
+
+.guinzar-user-text {
+  color: #666;
+  padding-top: 2px;
+}
+
+.guinzar-orange-icon {
+  color: #FF7F00;
+}
+
 .guinzar-user-info {
   display: flex;
   flex-direction: row;
@@ -100,7 +131,7 @@
   background-size: contain;
 }
 .guinzar-user-link {
-  color: blue;
+  color: #0073bb;
   font-weight: bold;
   font-size: 13px;
   text-decoration: none;
@@ -112,8 +143,7 @@
   width: 380px;
   padding: 6px;
   background-color: white;
-  border: 5px solid #84ff00;
-  border-radius: 10px;
+
 }
 .guinzar-review-header {
   display: flex;
@@ -124,16 +154,18 @@
 .guinzar-review-hearts {
   display: flex;
   flex-direction: row;
+  padding-bottom: 3px;
 }
 .guinzar-review-heart {
   width: 20px;
   height: 20px;
   margin-right: 2px;
-  background-image: url("https://i.imgur.com/YQcQAdG.png");
-  background-size: contain;
+  font-size:20px;
+  color: #d32323;
 }
-.guinzar-guinzar-review-text {
+.guinzar-review-text {
   font-size: 14px;
+  color: #333;
 }
 .guinzar-highlight {
   font-weight: bold;
@@ -141,17 +173,29 @@
 .guinzar-review-qualities {
   display: flex;
   flex-direction: row;
+  padding-top: 10px;
+  padding-bottom:10px;
 }
 .guinzar-review-quality {
   padding: 3px 10px 0px 0px;
 }
 .guinzar-review-quality-btn {
-  width: 80px;
+  width: 100px;
   height: 30px;
   border: 0px;
   border-radius: 5px;
-  background-color: #ffdf00;
+  font-size: 14px;
+  color: #333;
 }
+.guinzar-review-quality-btn:hover {
+  background-color:#ffdf00;
+  color:white;
+}
+
+.guinzar-review-date {
+  color: grey;
+} 
+
 .guinzar-pages {
   display: flex;
   flex-direction: row;

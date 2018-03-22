@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 const Header = ({ reviews }) => (
   <div className="guinzar-header">
-    <span className="guinzar-yellow">Recommended Reviews</span> for {reviews.data.name}
+    <span className="guinzar-red">Recommended Reviews</span> for {reviews.data.name}
   </div>
 );
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+
 
 const SearchAndSort = ({ params }) => {
   let input;
@@ -42,13 +44,13 @@ const SearchAndSort = ({ params }) => {
             input.value = '';
           }
         }}/>
-        <button onClick={() => {
+        <button className="guinzar-search-btn" onClick={() => {
           if (input.value.length) {
             window.location = '/' + params.id + '?q=' + input.value;
           }
           input.value = '';
         }}>
-        Search
+        <FontAwesomeIcon icon='search' />
         </button>
       </div>
       <div>
