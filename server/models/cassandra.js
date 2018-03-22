@@ -11,17 +11,19 @@ module.exports = {
       user_useful, user_funny, user_cool,
       user_fans, average_stars as user_average_stars, tag as user_pic
       FROM oneTable 
-      WHERE business_id='${id}'`;
+      WHERE business_id = ? `;
       //other sort factors (apart from useful not working yet)
       query += 'ORDER BY useful desc, date desc';
      
-      //if enabled can imporve from 895.5 to 1000+
-      // query += ' limit 20';
+      // if enabled can imporve from 895.5 to 1000+
+      if (!params.sort_by) {
+        query += ' limit 20';
+      }
 
       // if (params.q) {
       //   query = `select * from (` + query + `) as reviews where reviews.text like '%${params.q}%'`
       // }
-      db.execute(query, (err, result) => {
+      db.execute(query, [id], { prepare: true }, (err, result) => {
         if (err) {
           reject(err);
         } else {
@@ -30,7 +32,6 @@ module.exports = {
           var reviews = rows.slice();
 
           if (params.sort_by) {
-
             reviews.sort(function(a , b) {
               switch (params.sort_by) {
                 case 'date_desc':
@@ -50,8 +51,7 @@ module.exports = {
               }
             });
           }
-
-
+          //send back the pages which are required
           if (params.start) {
             reviews = reviews.slice(params.start, (params.start * 1) + 20);
           } else {

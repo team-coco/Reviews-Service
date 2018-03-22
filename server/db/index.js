@@ -5,14 +5,11 @@ const mysql = require('mysql');
 
 //CASS REQURIEMENTS
 const cassandra = require('cassandra-driver');
+const distance = cassandra.types.distance;
 const async = require('async');
 
 
-// const host = process.env.DB_HOST || '127.0.0.1';
-// const database = process.env.DB || "yelp_db";
-// const password = process.env.DB_PASSWORD || "";
-
-const host = '127.0.0.1';
+const host = process.env.DB_HOST || '127.0.0.1';
 const database = process.env.DB || "yelp_db";
 const password = process.env.DB_PASSWORD || "";
 
@@ -39,12 +36,23 @@ if (process.env.DB_CHOICE ==='sql') {
 } else if (process.env.DB_CHOICE === 'cassandra') {
     con = new cassandra.Client({
       contactPoints: [host],
-      keyspace: database
+      keyspace: database,
+      pooling: {
+        coreConnectionsPerHost: {
+          [distance.local] : 10,
+          [distance.remote] : 10
+        } 
+     }
     });
     con.connect(function(err) {
       if (err) return console.error(err);
       console.log(`Connected to cluster with ${con.hosts.length} hosts: ${con.hosts.keys()}`);
     })
+    con.on('log', function(level, className, message, furtherInfo) {
+      if (level != 'verbose') {
+             console.log('cassandra: %s -- %s', level, message);
+      }
+  });
 }
 
 module.exports = con;
