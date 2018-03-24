@@ -40,14 +40,17 @@ if (process.env.DB_CHOICE ==='sql') {
       keyspace: database,
       pooling: {
         coreConnectionsPerHost: {
-          [distance.local] : 10,
-          [distance.remote] : 10
+          [distance.local] : 5,
+          [distance.remote] : 5
         } 
      }
     });
     con.connect(function(err) {
       if (err) return console.error(err);
       console.log(`Connected to cluster with ${con.hosts.length} hosts: ${con.hosts.keys()}`);
+      con.hosts.forEach(function (host) {
+        console.log(host.address, host.datacenter, host.rack);
+      });
     })
     con.on('log', function(level, className, message, furtherInfo) {
       if (level != 'verbose') {

@@ -1,8 +1,8 @@
 config:
   target: 'http://13.57.81.229:3004'
   phases:
-    - duration: 10
-      arrivalRate: 1
+    - duration: 60
+      arrivalRate: 25
   defaults:
     headers:
   payload:
@@ -15,4 +15,4 @@ scenarios:
     - loop:
       - get:
           url: "/reviews/reviews/{{business_id}}"
-      count: 1
+      count: 150

@@ -63,8 +63,8 @@ module.exports = {
           }
           try {
             resolve({name: rows[0]['business_name'], pages: new Array(pages), reviews: reviews});
-
           } catch (err) {
+            console.log('Error at model: ', err);
             reject(err)
           }
         }
