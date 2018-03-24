@@ -1,5 +1,5 @@
 config:
-  target: 'http://localhost:3004'
+  target: 'http://13.57.81.229:3004'
   phases:
     - duration: 10
       arrivalRate: 25
@@ -15,4 +15,4 @@ scenarios:
     - loop:
       - get:
           url: "/reviews/reviews/{{business_id}}"
-      count: 200
+      count: 1

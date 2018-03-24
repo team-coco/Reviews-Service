@@ -24,6 +24,7 @@ module.exports = {
         
         }).catch(err => {
           console.log('oh no db error', err);
+          res.status(404);
           res.end();
         }); 
       }

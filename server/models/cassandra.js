@@ -30,6 +30,10 @@ module.exports = {
           var rows = result.rows;
           var pages = Math.ceil(rows.length / 20);
           var reviews = rows.slice();
+          //caters for empty outputs
+          if (reviews.length === 0) {
+            reject(err);
+          }
 
           if (params.sort_by) {
             reviews.sort(function(a , b) {
