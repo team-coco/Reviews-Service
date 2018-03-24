@@ -61,8 +61,12 @@ module.exports = {
           } else {
             reviews = reviews.slice(0, 20);
           }
+          try {
+            resolve({name: rows[0]['business_name'], pages: new Array(pages), reviews: reviews});
 
-          resolve({name: rows[0]['business_name'], pages: new Array(pages), reviews: reviews});
+          } catch (err) {
+            reject(err)
+          }
         }
       });
       // query += ' limit 20';

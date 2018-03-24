@@ -2,7 +2,7 @@ config:
   target: 'http://13.57.81.229:3004'
   phases:
     - duration: 10
-      arrivalRate: 25
+      arrivalRate: 1
   defaults:
     headers:
   payload:
