@@ -40,9 +40,12 @@ if (process.env.DB_CHOICE ==='sql') {
       keyspace: database,
       pooling: {
         coreConnectionsPerHost: {
-          [distance.local] : 5,
-          [distance.remote] : 5
-        } 
+          [distance.local] : 10,
+          [distance.remote] : 10
+        },
+        policies: {
+          retry: new cassandra.policies.FallthroughRetryPolicy()
+        }
      }
     });
     con.connect(function(err) {
