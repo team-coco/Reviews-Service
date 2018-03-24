@@ -44,7 +44,7 @@ if (process.env.DB_CHOICE ==='sql') {
           [distance.remote] : 10
         },
         policies: {
-          retry: new cassandra.policies.FallthroughRetryPolicy()
+          retry: new cassandra.policies.FallthroughRetryPolicy
         }
      }
     });
