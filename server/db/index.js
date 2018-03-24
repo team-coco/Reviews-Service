@@ -6,6 +6,8 @@ const mysql = require('mysql');
 //CASS REQURIEMENTS
 const cassandra = require('cassandra-driver');
 const distance = cassandra.types.distance;
+const IdempotenceAwareRetryPolicy = require('cassandra-driver').policies.retry.IdempotenceAwareRetryPolicy;
+const RetryPolicy = require('cassandra-driver').policies.retry.RetryPolicy;
 const async = require('async');
 
 
@@ -44,7 +46,7 @@ if (process.env.DB_CHOICE ==='sql') {
           [distance.remote] : 10
         },
         policies: {
-          retry: new cassandra.policies.FallthroughRetryPolicy
+          retry: new IdempotenceAwareRetryPolicy(new RetryPolicy())
         }
      }
     });
