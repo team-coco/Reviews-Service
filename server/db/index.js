@@ -9,7 +9,7 @@ const distance = cassandra.types.distance;
 const async = require('async');
 
 
-const host = process.env.DB_HOST || '127.0.0.1';
+
 const database = process.env.DB || "yelp_db";
 const password = process.env.DB_PASSWORD || "";
 
@@ -17,7 +17,7 @@ var con;
 
 console.log('DB CHOICE: ', process.env.DB_CHOICE);
 if (process.env.DB_CHOICE ==='sql') {
-  
+  const host = process.env.DB_HOST || '127.0.0.1';
   con = mysql.createConnection({
     host: host,
     user: "root",
@@ -34,8 +34,9 @@ if (process.env.DB_CHOICE ==='sql') {
     }
   });
 } else if (process.env.DB_CHOICE === 'cassandra') {
+    const host = process.env.DB_HOST.split(' ') || ['127.0.0.1'];
     con = new cassandra.Client({
-      contactPoints: [host],
+      contactPoints: host,
       keyspace: database,
       pooling: {
         coreConnectionsPerHost: {
