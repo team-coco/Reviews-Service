@@ -58,12 +58,17 @@ module.exports = {
           } else {
             reviews = reviews.slice(0, 20);
           }
-          try {
-            resolve({name: rows[0]['business_name'], pages: new Array(pages), reviews: reviews});
-          } catch (err) {
-            console.log('Error at model: ', err);
-            reject(err)
-          }
+
+          var biz_name = (!rows[0]['business_name']) ? 'Fish Sticks by the Bay' : rows[0]['business_name'];
+          
+          resolve({name: biz_name, pages: new Array(pages), reviews: reviews});
+
+          // try {
+          //   resolve({name: rows[0]['business_name'], pages: new Array(pages), reviews: reviews});
+          // } catch (err) {
+          //   console.log('Error at model: ', err);
+          //   reject(err)
+          // }
         }
       });
       // query += ' limit 20';
