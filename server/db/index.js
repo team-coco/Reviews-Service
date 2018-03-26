@@ -44,10 +44,9 @@ if (process.env.DB_CHOICE ==='sql') {
         coreConnectionsPerHost: {
           [distance.local] : 10,
           [distance.remote] : 10
-        },
-        policies: {
-          retry: new IdempotenceAwareRetryPolicy(new RetryPolicy())
-        }
+        }},
+      policies: {
+        retry: new IdempotenceAwareRetryPolicy(new RetryPolicy())
      }
     });
     con.connect(function(err) {
