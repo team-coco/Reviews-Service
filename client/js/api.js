@@ -2,7 +2,7 @@ import axios from 'axios';
 export default {
   getReviews: (params) => {
     return new Promise((resolve, reject) => {
-      var url = `/reviews/reviews/${params.id}`;
+      var url = `/api/reviews/${params.id}`;
       var keys = Object.keys(params);
       keys.shift();
       if (keys.length) {

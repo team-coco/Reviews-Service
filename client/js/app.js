@@ -14,16 +14,15 @@ import rootSaga from '../../client/js/saga.js'
 const sagaMiddleware = createSagaMiddleware();
  
 // Grab the state from a global variable injected into the server-generated HTML
-const preloadedState = window.__PRELOADED_STATE__
+const preloadedState = window.__REVIEWS_INITIAL_STATE__
  console.log(preloadedState);
 // Allow the passed state to be garbage-collected
-delete window.__PRELOADED_STATE__
+delete window.__REVIEWS_INITIAL_STATE__
  
 // Create Redux store with initial state
 var store = createStore(deactivatedStore, preloadedState, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(rootSaga);
 
-console.log('Client store state: ', store.getState())
  
 hydrate(
   <Provider store={store}>

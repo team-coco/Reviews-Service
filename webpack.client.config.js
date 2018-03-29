@@ -34,7 +34,7 @@ var config = {
   },
   output: {
     path: BUILD_DIR,
-    filename: 'app.js'
+    filename: 'bundle.js'
   }
 };
 module.exports = config;

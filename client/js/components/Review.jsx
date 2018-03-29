@@ -32,16 +32,18 @@ class Review extends React.Component {
       $('#guinzar-review-' + this.props.keyVal).html(src_str);
     }
   }
+  // FOR PIC URL, INSERT INTO user-pic
+  // style={this.props.userData.data[this.props.review.user_id] ?
+  //   {backgroundImage: "url(" + this.props.userData.data[this.props.review.user_id].url + ")"}
+  //   : {backgroundImage: "url(" + this.props.review.user_pic + ")"}}
   render() {
     return (
       <div className="guinzar-review-container">
         <div className="guinzar-user">
           <div className="guinzar-user-info">
             <div className="guinzar-user-picture">
-              <div className="guinzar-user-pic"
-                style={this.props.userData.data[this.props.review.user_id] ?
-                  {backgroundImage: "url(" + this.props.userData.data[this.props.review.user_id].url + ")"}
-                  : {backgroundImage: "url(" + this.props.review.user_pic + ")"}}></div>
+              <div className="guinzar-user-pic">
+              </div>
 
             </div>
             <div className="guinzar-user-stats">

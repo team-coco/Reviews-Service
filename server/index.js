@@ -17,17 +17,23 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-console.log(__dirname)
-app.use('/', express.static('/Users/zhen/Code/Reviews-Service/dist'));
 
-app.get('/reviews/reviews/:id', controller.reviews.get);
+app.use('/', express.static('./dist'));
+app.use('/main/reviews', express.static('./dist'));
+app.use('/main/reviews/ssr', express.static('./dist'));
 
-//main route for serverside rendering
-app.get('/:id', controller.reviews.ssr);
-
-// app.get('/:id', (req, res) => {
-//   res.sendFile(path.join(__dirname + '/../dist/index.html'));
+// app.use(/\/main\/.*?\.jpg/, function (req, res) {
+//   res.status(404);
+//   res.end();
 // });
+app.get('/api/reviews/:id', controller.reviews.get);
+
+//main route for serverside rendering returns [html, prerenderedStore] BOTH AS STRINGS
+app.get('/main/reviews/:id', controller.reviews.ssr);
+
+//fullpage of service SSR 
+app.get('/main/reviews/ssr/:id', controller.reviews.ssrService);
+
 app.listen(port, function() {
   console.log(`listening on port ${port}` );
 });

@@ -30,11 +30,26 @@ module.exports = {
         }); 
       }
     },
-  ssr: (req, res) => {
+  ssrService: (req, res) => {
     models.get(req.params.id, req.query).then(data => {
-      
+
       ssr.renderComponents(req.url, data).then((result) =>{
         res.send(ssr.renderFullpage(result[0], result[1]));
+      }).catch((err) => {
+        console.log('Something went wrong with SSR: ', err);
+      })
+
+    }).catch(err => {
+      console.log('oh no db error', err);
+      res.status(404);
+      res.end();
+    }); 
+  },
+  ssr: (req, res) => {
+    models.get(req.params.id, req.query).then(data => {
+
+      ssr.renderComponents(req.url, data).then((result) =>{
+        res.send([result[0], JSON.stringify(result[1]).replace(/</g, '\\u003c')]);
       }).catch((err) => {
         console.log('Something went wrong with SSR: ', err);
       })
