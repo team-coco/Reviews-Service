@@ -23,8 +23,7 @@ function* fetchUserData (action) {
   }
 }
 const sagas = [
-  takeEvery('FETCHING_REVIEWS', fetchReviews),
-  takeEvery('FETCHING_USERDATA', fetchUserData)
+  takeEvery('FETCHING_REVIEWS', fetchReviews)
 ];
 
 const testSaga = [

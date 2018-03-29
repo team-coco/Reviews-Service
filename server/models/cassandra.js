@@ -59,7 +59,7 @@ module.exports = {
           }
 
           //caters for when there are no reviews for restraunt
-          var biz_name = (!rows[0]['business_name']) ? 'Fish Sticks by the Bay' : rows[0]['business_name'];
+          var biz_name = (!rows[0]) ? 'Fish Sticks by the Bay' : rows[0]['business_name'];
           
           resolve({name: biz_name, pages: new Array(pages), reviews: reviews});
         }

@@ -2,8 +2,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import Header from './Header.jsx';
-import SearchAndSort from './SearchAndSort.jsx';
 import Reviews from './Reviews.jsx';
+import SearchAndSort from './SearchAndSort.jsx';
 
 // import configureStore from '../store';
 

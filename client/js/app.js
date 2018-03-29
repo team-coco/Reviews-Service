@@ -22,6 +22,8 @@ delete window.__PRELOADED_STATE__
 // Create Redux store with initial state
 var store = createStore(deactivatedStore, preloadedState, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(rootSaga);
+
+console.log('Client store state: ', store.getState())
  
 hydrate(
   <Provider store={store}>
@@ -29,3 +31,4 @@ hydrate(
   </Provider>,
   document.getElementById('reviews-module')
 )
+console.log('Client store state after hydrate: ', store.getState())

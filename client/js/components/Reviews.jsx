@@ -9,7 +9,8 @@ class Reviews extends React.Component {
     super(props);
   }
   componentDidMount() {
-    this.props.fetchReviews(this.props.params);
+    // this.props.fetchReviews(this.props.params);
+    
   }
   render() {
     return (

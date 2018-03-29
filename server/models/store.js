@@ -79,8 +79,8 @@ var passInData = function(url, data) {
   
   //console.log('Data in store: ', data);
   const initialReviews = {
-    data: [].slice.call(data.reviews),
-    dataFetched: true,
+    data: data,
+    dataFetched: false,
     isFetching: false,
     error: false
   }
