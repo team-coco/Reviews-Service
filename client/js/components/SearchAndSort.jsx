@@ -8,14 +8,16 @@ const SearchAndSort = ({ params }) => {
   const myFunction = () => {
     document.getElementById("guinzar-myDropdown").classList.toggle("guinzar-show");
   }
-  window.onclick = event => {
-    if (!event.target.matches('.guinzar-dropbtn')) {
-      var dropdowns = document.getElementsByClassName("guinzar-dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('guinzar-show')) {
-          openDropdown.classList.remove('guinzar-show');
+  if (typeof window !== 'undefined') {
+    window.onclick = event => {
+      if (!event.target.matches('.guinzar-dropbtn')) {
+        var dropdowns = document.getElementsByClassName("guinzar-dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('guinzar-show')) {
+            openDropdown.classList.remove('guinzar-show');
+          }
         }
       }
     }
@@ -38,14 +40,14 @@ const SearchAndSort = ({ params }) => {
         <input className="guinzar-search-input" ref={node => { input = node; }}
         onKeyPress={(e) => {
           if (e.key == 'Enter') {
-            if (input.value.length) {
+            if (input.value.length && typeof window !== 'undefined') {
               window.location = '/' + params.id + '?q=' + input.value;
             }
             input.value = '';
           }
         }}/>
         <button className="guinzar-search-btn" onClick={() => {
-          if (input.value.length) {
+          if (input.value.length && typeof window !== 'undefined') {
             window.location = '/' + params.id + '?q=' + input.value;
           }
           input.value = '';

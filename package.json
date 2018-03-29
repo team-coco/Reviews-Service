@@ -8,9 +8,12 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "webpack -d && node server/index.js",
+    "start": "node server/index.js",
     "dev-start": "nodemon server/index.js",
-    "dev": "webpack -d --watch"
+    "dev": "webpack -d --watch",
+    "build:all": "webpack -d --config ./webpack.server.config.js && webpack -d --config ./webpack.client.config.js",
+    "build:server": "webpack -d --config ./webpack.server.config.js",
+    "build:client": "webpack -d --config ./webpack.client.config.js"
   },
   "jest": {
     "setupFiles": [
@@ -27,6 +30,7 @@
     "@fortawesome/react-fontawesome": "0.0.17",
     "async": "^2.6.0",
     "axios": "^0.18.0",
+    "babel-env": "^2.4.1",
     "babel-polyfill": "^6.26.0",
     "bluebird": "^3.5.1",
     "cassandra-driver": "^3.4.1",
@@ -47,7 +51,8 @@
     "redux-saga": "^0.16.0",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
-    "style-loader": "^0.20.2"
+    "style-loader": "^0.20.2",
+    "webpack-node-externals": "^1.6.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

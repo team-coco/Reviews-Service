@@ -12,7 +12,6 @@ module.exports = {
       user_fans, average_stars as user_average_stars, tag as user_pic
       FROM oneTable 
       WHERE business_id = ? `;
-      //other sort factors (apart from useful not working yet)
       query += 'ORDER BY useful desc, date desc';
      
       // if enabled can imporve from 895.5 to 1000+
@@ -59,16 +58,10 @@ module.exports = {
             reviews = reviews.slice(0, 20);
           }
 
+          //caters for when there are no reviews for restraunt
           var biz_name = (!rows[0]['business_name']) ? 'Fish Sticks by the Bay' : rows[0]['business_name'];
           
           resolve({name: biz_name, pages: new Array(pages), reviews: reviews});
-
-          // try {
-          //   resolve({name: rows[0]['business_name'], pages: new Array(pages), reviews: reviews});
-          // } catch (err) {
-          //   console.log('Error at model: ', err);
-          //   reject(err)
-          // }
         }
       });
       // query += ' limit 20';
@@ -76,5 +69,8 @@ module.exports = {
       //   query += ` offset ${params.start}`
       // }
     });
+  },
+  renderSS: function () {
+    
   }
 };

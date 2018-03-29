@@ -131,8 +131,10 @@ const userData = (state = initialUsers, action) => {
 }
 const reviewsApp = combineReducers({todos, params, visibilityFilter, reviews, userData});
 
-export default function configureStore() {
-  const store = createStore(reviewsApp, applyMiddleware(sagaMiddleware));
-  sagaMiddleware.run(rootSaga);
-  return store;
-}
+export default reviewsApp;
+
+// export default function configureStore() {
+//   const store = createStore(reviewsApp, applyMiddleware(sagaMiddleware));
+//   sagaMiddleware.run(rootSaga);
+//   return store;
+// }

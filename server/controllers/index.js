@@ -1,7 +1,8 @@
 const dotenv = require('dotenv').config();
-var request = require('request');
-var cheerio = require('cheerio');
+const request = require('request');
+const cheerio = require('cheerio');
 var models = process.env.DB_CHOICE === 'sql' ?  require('../models/sql.js'): require('../models/cassandra.js'); 
+var ssr = require('../models/ssr.jsx');
 var DB_CHOICE = process.env.DB_CHOICE;
 
 module.exports = {
@@ -28,37 +29,21 @@ module.exports = {
           res.end();
         }); 
       }
+    },
+  ssr: (req, res) => {
+    models.get(req.params.id, req.query).then(data => {
+      
+      ssr.renderComponents(req.url, data).then((result) =>{
+        res.send(ssr.renderFullpage(result[0], result[1]));
+      }).catch((err) => {
+        console.log('Something went wrong with SSR: ', err);
+      })
+
+    }).catch(err => {
+      console.log('oh no db error', err);
+      res.status(404);
+      res.end();
+    }); 
     }
   }
-  // user: {
-  //   get: (req, res) => {
-  //     var url = `https://www.yelp.com/user_details?userid=${req.params.id}`;
-  //     request(url, (error, response, html) => {
-  //       if(!error){
-  //         var $ = cheerio.load(html);
-  //         var userPicUrl = $('.photo-slideshow_slide.is-active');
-  //         // console.log(userPicUrl);
-  //         if (userPicUrl) {
-  //           userPicUrl = userPicUrl.css('background-image');
-  //           if (userPicUrl.length) {
-  //             userPicUrl = userPicUrl.substr(4, userPicUrl.length - 5);
-  //             models.userpic.save(req.params.id, userPicUrl).then(err => {
-  //               if (err) {
-  //                 console.log('error saving');
-  //               } else {
-  //                 console.log('saved url succesfully');
-  //               }
-  //             });
-  //           }
-  //           res.json({url: userPicUrl});
-  //         } else {
-  //           res.end();
-  //         }
-  //       } else {
-  //         console.log(error);
-  //         res.end();
-  //       }
-  //     });
-  //   }
-  // }
 };
