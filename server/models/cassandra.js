@@ -32,7 +32,7 @@ module.exports = {
      
       // if enabled can imporve from 895.5 to 1000+
       if (!params.sort_by) {
-        query += ' limit 5';
+        query += ' limit 3';
       }
 
       // if (params.q) {
