@@ -26,10 +26,10 @@ app.use('/main/reviews/ssr', express.static('./dist'));
 //   res.status(404);
 //   res.end();
 // });
-app.get('/api/reviews/:id', controller.reviews.get);
+app.get('/reviews/reviews/:id', controller.reviews.get);
 
 //main route for serverside rendering returns [html, prerenderedStore] BOTH AS STRINGS
-app.get('/main/reviews/:id', controller.reviews.ssr);
+app.get('/api/reviews/:id', controller.reviews.ssr);
 
 //fullpage of service SSR 
 app.get('/main/reviews/ssr/:id', controller.reviews.ssrService);
