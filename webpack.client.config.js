@@ -1,7 +1,7 @@
 var path = require('path');
 var BUILD_DIR = path.resolve(__dirname, 'dist/js');
 var APP_DIR = path.resolve(__dirname, 'client/js');
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 var config = {
   entry: ['babel-polyfill', APP_DIR + '/app.js'],
@@ -36,7 +36,7 @@ var config = {
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js'
-  },
-  plugins: [new BundleAnalyzerPlugin()]
+  }
+  // plugins: [new BundleAnalyzerPlugin()]
 };
 module.exports = config;
