@@ -15,9 +15,7 @@ import actions from '../../client/js/actions';
 module.exports = {
     renderComponents: function (url, data) {
         return new Promise((resolve, reject) => {
-            //edited slightly from docs
-        
-            
+
             var store = configureStore(url, data)
 
 
@@ -33,11 +31,11 @@ module.exports = {
                 resolve([html, preloadedState])
             })
 
-            renderToString(
-                <Provider store={store}>
-                    <ReviewsService />
-                </Provider>
-            )
+            // renderToString(
+            //     <Provider store={store}>
+            //         <ReviewsService />
+            //     </Provider>
+            // )
             store.close();
 
         })
