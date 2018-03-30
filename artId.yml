@@ -2,7 +2,7 @@ config:
   target: 'http://13.57.81.229'
   phases:
     - duration: 10
-      arrivalRate: 10
+      arrivalRate: 1
   defaults:
     headers:
   processor: "./load_testing/randomId.js"
@@ -13,4 +13,4 @@ scenarios:
       - function: "randomId"
       - get:
           url: "/main/reviews/ssr/{{business_id}}"
-      count: 100
+      count: 1
