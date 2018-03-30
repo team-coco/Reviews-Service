@@ -21,6 +21,7 @@ app.use(function(req, res, next) {
 app.use('/', express.static('./dist'));
 app.use('/main/reviews', express.static('./dist'));
 app.use('/main/reviews/ssr', express.static('./dist'));
+app.use('/api/reviews/ssr', express.static('./dist'));
 
 // app.use(/\/main\/.*?\.jpg/, function (req, res) {
 //   res.status(404);
