@@ -5,12 +5,9 @@ import Header from './Header.jsx';
 import Reviews from './Reviews.jsx';
 import SearchAndSort from './SearchAndSort.jsx';
 
-// import configureStore from '../store';
-
 import { library } from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faGratipay from '@fortawesome/fontawesome-free-brands/faGratipay';
-// import { faStickyNote, faUser, faSearch, faLightbulb, faSmile, faCubes  } from '@fortawesome/fontawesome-free-solid';
 import faStickyNote from '@fortawesome/fontawesome-free-solid/faStickyNote';
 import faUser from '@fortawesome/fontawesome-free-solid/faUser';
 import faSearch from '@fortawesome/fontawesome-free-solid/faSearch';

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchUserData } from '../actions'
 import QualityBtn from './QualityBtn.jsx';
-import $ from 'jquery';
+// import $ from 'jquery';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 class Review extends React.Component {
@@ -23,13 +23,15 @@ class Review extends React.Component {
     //   console.log('dont fetch');
     // }
     if (this.props.params.q) {
-      var src_str = $('#guinzar-review-' + this.props.keyVal).text();
+      // var src_str = $('#guinzar-review-' + this.props.keyVal).text();
+      var src_str = document.getElementById('guinzar-review-' + this.props.keyVal).textContent();
       var term = this.props.params.q;
       term = term.replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
       var pattern = new RegExp("("+term+")", "gi");
       src_str = src_str.replace(pattern, "<mark>$1</mark>");
       src_str = src_str.replace(/(<mark>[^<>]*)((<[^>]+>)+)([^<>]*<\/mark>)/,"$1</mark>$2<mark>$4");
-      $('#guinzar-review-' + this.props.keyVal).html(src_str);
+      // $('#guinzar-review-' + this.props.keyVal).html(src_str);
+      document.getElementById('guinzar-review-' + this.props.keyVal).innerHTML(src_str);
     }
   }
   // FOR PIC URL, INSERT INTO user-pic
