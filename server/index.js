@@ -36,7 +36,6 @@ app.get('/main/reviews/ssr/:id', controller.reviews.ssrService);
 
 app.listen(port, function(err) {
   console.log(`listening on port ${port}` );
-  if (err) {
-    console.log(err);
-  }
-});
+}).on('error', function (err) {
+  console.log(err);
+})
