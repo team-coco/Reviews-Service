@@ -34,6 +34,9 @@ app.get('/main/reviews/:id', controller.reviews.ssr);
 //fullpage of service SSR 
 app.get('/main/reviews/ssr/:id', controller.reviews.ssrService);
 
-app.listen(port, function() {
+app.listen(port, function(err) {
   console.log(`listening on port ${port}` );
+  if (err) {
+    console.log(err);
+  }
 });
