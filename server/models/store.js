@@ -143,7 +143,6 @@ var passInData = function(url, data) {
 
 export default function configureStore(url, data) {
   const store = createStore(passInData(url, data), applyMiddleware(sagaMiddleware));
-  //sagaMiddleware.run(rootSaga);
 
   store.runSaga = sagaMiddleware.run;
   store.close = () => store.dispatch(END);
