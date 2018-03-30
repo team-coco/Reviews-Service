@@ -7,11 +7,11 @@ import SearchAndSort from './SearchAndSort.jsx';
 
 // import configureStore from '../store';
 
-import fontawesome from '@fortawesome/fontawesome'
+import { library } from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import {faGratipay} from '@fortawesome/fontawesome-free-brands';
 import { faStickyNote, faUser, faSearch, faLightbulb, faSmile, faCubes  } from '@fortawesome/fontawesome-free-solid';
-fontawesome.library.add( faStickyNote, faUser, faSearch, faLightbulb, faSmile, faCubes, faGratipay);
+library.add( faStickyNote, faUser, faSearch, faLightbulb, faSmile, faCubes, faGratipay);
 
 // const store = configureStore();
 
