@@ -2,15 +2,15 @@ import { call, put, all, takeEvery } from 'redux-saga/effects'
 import api from './api'
 
 function* fetchReviews (action) {
-  console.log('Fetch Reviews Saga running');
-  console.log('Action: ', action);
-  console.log('API: ', api.getReviews);
+  // console.log('Fetch Reviews Saga running');
+  // console.log('Action: ', action);
+  // console.log('API: ', api.getReviews);
   try {
     const data = yield api.getReviews(action.params)
-    console.log('Data?: ', data);
+    // console.log('Data?: ', data);
     yield put({ type: 'FETCHING_REVIEWS_SUCCESS', data });
   } catch (e) {
-    console.log('Error: ', e);
+    // console.log('Error: ', e);
     yield put({ type: 'FETCHING_REVIEWS_FAILURE' });
   }
 }
@@ -30,7 +30,7 @@ const testSaga = [
   call(fetchReviews, {params: { id: '--cjBEbXMI2obtaRHNSFrA'}})
 ]
 function* rootSaga () {
-  console.log('Root Saga running');
+  // console.log('Root Saga running');
   yield all([
     ...sagas
   ]);

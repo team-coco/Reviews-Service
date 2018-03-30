@@ -43,7 +43,7 @@ module.exports = {
         })
     },
     renderFullpage(html, preloadedState) {
-        console.log('Rendering HTML and preloaded state :', preloadedState);
+        //console.log('Rendering HTML and preloaded state :', preloadedState);
         return `
             <!doctype html>
             <html lang="en-US">

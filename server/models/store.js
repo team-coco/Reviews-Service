@@ -68,7 +68,7 @@ var passInData = function(url, data) {
       return acc;
     }, allParams);
   }
-  console.log(allParams);
+  //console.log(allParams);
   
   const params = (state = allParams, action) => {
     switch (action.type) {

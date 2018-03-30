@@ -11,7 +11,7 @@ module.exports = {
         if (err) {
           console.log(err);
         }
-        console.log('result is:', result);
+        
         var business_id = result.rows[0]['business_id']
         //console.log(params);
         var query = `SELECT business_name, stars, date, text,
