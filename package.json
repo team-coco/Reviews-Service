@@ -48,6 +48,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
+    "redis": "^2.8.0",
     "redux": "^3.7.2",
     "redux-devtools": "^3.4.1",
     "redux-saga": "^0.16.0",
